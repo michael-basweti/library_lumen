@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -21,11 +22,18 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'email'=>'required|email|unique:users',
-            'location'=>'required|alpha'
+            'name' => 'required|string|max:255',
+            'email'=>'required|string|email|max:255|unique:users',
+            'password'=>'required|string|min:6'
         ]);
-        $user = User::create($request->all());
+        // $user = User::create($request->all());
+
+        $user = new User;
+        $user->name= $request->name;
+        $user->email = $request->email;
+        $user->password= Hash::make($request->password);
+
+        $user->save();
 
         return response()->json($user, 201);
     }
