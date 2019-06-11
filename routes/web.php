@@ -10,9 +10,11 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
+$router->group(['prefix'=>'api/v1/'], function () use ($router){
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+    $router->post('users', ['uses' => 'UserController@create']);
+    $router->post('login',['uses' => 'AuthController@authenticate']);
+
 });
 
 $router->group(['prefix'=>'api/v1/', 'middleware' => 'jwt.auth'], function () use ($router){
@@ -27,9 +29,3 @@ $router->group(['prefix'=>'api/v1/', 'middleware' => 'jwt.auth'], function () us
 
     $router->put('users/{id}', ['uses' => 'UserController@update']);
 });
-$router->post(
-    'auth/login',
-    [
-       'uses' => 'AuthController@authenticate'
-    ]
-);
