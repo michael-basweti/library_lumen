@@ -18,14 +18,23 @@ $router->group(['prefix'=>'api/v1/'], function () use ($router){
 });
 
 $router->group(['prefix'=>'api/v1/', 'middleware' => 'jwt.auth'], function () use ($router){
+    // users
     $router->get('users', ['uses'=>'UserController@showAllUsers']);
     $router->get('users/{id}', ['uses' => 'UserController@showOneUser']);
-
     $router->post('users', ['uses' => 'UserController@create']);
-
-    $router->post('authors', ['uses' => 'AuthorController@create']);
-
     $router->delete('users/{id}', ['uses' => 'UserController@delete']);
-
     $router->put('users/{id}', ['uses' => 'UserController@update']);
+    // authors
+    $router->get('authors', ['uses'=>'AuthorController@showAllauthors']);
+    $router->get('authors/{id}', ['uses' => 'AuthorController@showOneAuthor']);
+    $router->get('authors/{id}/books', ['uses' => 'AuthorController@showOneAuthorWithBooks']);
+    $router->post('authors', ['uses' => 'AuthorController@create']);
+    $router->delete('authors/{id}', ['uses' => 'AuthorController@delete']);
+    $router->put('authors/{id}', ['uses' => 'AuthorController@update']);
+    // books
+    $router->get('books', ['uses'=>'BooksController@showAllBooks']);
+    $router->get('books/{id}', ['uses' => 'BooksController@showOneBook']);
+    $router->post('books', ['uses' => 'BooksController@create']);
+    $router->delete('books/{id}', ['uses' => 'BooksController@delete']);
+    $router->put('books/{id}', ['uses' => 'BooksController@update']);
 });

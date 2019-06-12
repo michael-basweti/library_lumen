@@ -3,7 +3,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model {
+class Book extends Model {
 
 
 
@@ -13,7 +13,7 @@ class Author extends Model {
      * @var array
      */
     protected $fillable = [
-        'name','email', 'dob'
+        'title', 'author_id', 'description', 'publisher', 'year_of_publication'
     ];
 
     /**
@@ -24,8 +24,8 @@ class Author extends Model {
     protected $hidden = [];
 
     // Relationships
-    public function book(){
-        return $this->hasMany('App\Book');
+    public function author(){
+        return $this->belongsTo('App\Author');
     }
 
 }
