@@ -21,7 +21,6 @@ $router->group(['prefix'=>'api/v1/', 'middleware' => 'jwt.auth'], function () us
     // users
     $router->get('users', ['uses'=>'UserController@showAllUsers']);
     $router->get('users/{id}', ['uses' => 'UserController@showOneUser']);
-    $router->post('users', ['uses' => 'UserController@create']);
     $router->delete('users/{id}', ['uses' => 'UserController@delete']);
     $router->put('users/{id}', ['uses' => 'UserController@update']);
     // authors
