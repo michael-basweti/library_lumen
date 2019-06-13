@@ -15,11 +15,12 @@ class Controller extends BaseController
      *     name="Michael Basweti"
      *   )
      * )
+     * schemes": ["http", "https"]
      * @OA\SecurityScheme(
 *      securityScheme="bearerAuth",
 *      in="header",
 *      name="bearerAuth",
-*      type="https",
+*      type="http",
 *      scheme="bearer",
 *      bearerFormat="JWT",
 * ),
