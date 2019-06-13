@@ -4,6 +4,9 @@
 
 # Lumen Library Api
 * This is a simple Api that shows books in a library. It organises the books according to authors, title etc
+## Getting the swagger Documented Api
+* visit ```https://mysterious-lake-67681.herokuapp.com/api/documentation```
+
 ## URLs
 * The following are the urls one may use to interact with the API
 ### USER URLs
