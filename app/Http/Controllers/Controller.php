@@ -19,7 +19,7 @@ class Controller extends BaseController
 *      securityScheme="bearerAuth",
 *      in="header",
 *      name="bearerAuth",
-*      type="http",
+*      type="https",
 *      scheme="bearer",
 *      bearerFormat="JWT",
 * ),
