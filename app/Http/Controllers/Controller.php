@@ -15,9 +15,9 @@ class Controller extends BaseController
      *     name="Michael Basweti"
      *   )
      * )
-     * schemes": ["https", "http"]
+     * schemes": "["https"]"
      * @OA\SecurityScheme(
-     * schemes": ["https", "http"]
+     * schemes": "["https"]"
 *      securityScheme="bearerAuth",
 *      in="header",
 *      name="bearerAuth",

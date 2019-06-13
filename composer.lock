@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b95c56373649e1fc7f89fcf07089bcdd",
+    "content-hash": "5c87b72367c717d0365cc6b4ada041b9",
     "packages": [
         {
             "name": "darkaonline/swagger-lume",
