@@ -6,6 +6,7 @@
 * This is a simple Api that shows books in a library. It organises the books according to authors, title etc
 ## URLs
 * The following are the urls one may use to interact with the API
+### USER URLs
 #### POST::https://mysterious-lake-67681.herokuapp.com/api/v1/users
 ```
 {
@@ -39,3 +40,52 @@ Pass id of the user you want to see, dont forget to pass authorization token
 ```
 #### DELETE::https://mysterious-lake-67681.herokuapp.com/api/v1/users/{}
 * Pass id of the user you want to delete, dont forget to pass authorization token
+
+### Book URLs
+* For the all the following URLs, You need to pass the bearer token in the headers
+#### POST::https://mysterious-lake-67681.herokuapp.com/api/v1/books
+```
+"title":"A man of the people",
+"publisher":"Longhorn Publishers",
+"year_of_publication":"2007",
+"description":"A book on corrupt African leaders",
+"author_id":1
+```
+* author_id should belong to an existing user
+#### PUT::https://mysterious-lake-67681.herokuapp.com/api/v1/books{id}
+```
+"title":"An enemy of the people",
+"publisher":"Longhorn",
+```
+#### DELETE::https://mysterious-lake-67681.herokuapp.com/api/v1/books{id}
+* Here you just need to pass the id
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books{id}
+* Here you just need to pass the id to get a single book
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books
+* Get all books
+
+## Author URLs
+* For the all the following URLs, You need to pass the bearer token in the headers
+#### POST::https://mysterious-lake-67681.herokuapp.com/api/v1/authors
+```
+"name":"Elijah Ominde",
+"email":"elija@gmail.com",
+"dob":"2007",
+```
+
+#### PUT::https://mysterious-lake-67681.herokuapp.com/api/v1/authors{id}
+```
+"name":"Elijah Basweti",
+
+```
+#### DELETE::https://mysterious-lake-67681.herokuapp.com/api/v1/authors{id}
+* Here you just need to pass the id to delete an author
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors{id}
+* Here you just need to pass the id to get a single authors
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors
+* Get all authors
+
