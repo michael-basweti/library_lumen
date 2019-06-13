@@ -10,6 +10,21 @@ class BooksController extends Controller
 {
 
 
+    /**
+     * @OA\GET(
+     *     path="/api/v1/books",
+     *     operationId="/sample/category/things",
+     *     tags={"Get All Books"},
+     *security={{"bearerAuth":{}}},
+     *
+     *     @OA\Response(
+     *         response="200",
+     *         description="Returns some sample category things",
+     *         @OA\JsonContent()
+     *     ),
+     *
+     * )
+     */
     public function showAllBooks(Request $request)
     {
         $books = Book::with('author');
@@ -40,6 +55,27 @@ class BooksController extends Controller
         return response()->json($books, 200);
     }
 
+    /**
+     * @OA\GET(
+     *     path="/api/v1/books/{id}",
+     *     operationId="/sample/category/things",
+     *     tags={"Get One Book"},
+     *security={{"bearerAuth":{}}},
+     *@OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="book id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Returns some sample category things",
+     *         @OA\JsonContent()
+     *     ),
+     *
+     * )
+     */
     public function showOneBook($id)
     {
         try {
@@ -50,6 +86,58 @@ class BooksController extends Controller
         return response()->json($book, 200);
     }
 
+    /**
+     * @OA\POST(
+     *     path="/api/v1/books",
+     *     operationId="/sample/category/things",
+     *     tags={"Add a book"},
+     *security={{"bearerAuth":{}}},
+     *     @OA\Parameter(
+     *         name="title",
+     *         in="query",
+     *         description="title",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="publisher",
+     *         in="query",
+     *         description="publisher",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="year_of_publication",
+     *         in="query",
+     *         description="year of publication",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *@OA\Parameter(
+     *         name="description",
+     *         in="query",
+     *         description="description of the book",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *@OA\Parameter(
+     *         name="author_id",
+     *         in="query",
+     *         description="author id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Returns some sample category things",
+     *         @OA\JsonContent()
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Error: Bad request. When required parameters were not supplied.",
+     *     ),
+     * )
+     */
     public function create(Request $request)
     {
         $this->validate($request, [
@@ -64,6 +152,66 @@ class BooksController extends Controller
         return response()->json($books, 201);
     }
 
+
+    /**
+     * @OA\PUT(
+     *     path="/api/v1/books/{id}",
+     *     operationId="/sample/category/things",
+     *     tags={"Edit a book"},
+     *security={{"bearerAuth":{}}},
+     *@OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="book id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="title",
+     *         in="query",
+     *         description="title",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="publisher",
+     *         in="query",
+     *         description="publisher",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Parameter(
+     *         name="year_of_publication",
+     *         in="query",
+     *         description="year of publication",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *@OA\Parameter(
+     *         name="description",
+     *         in="query",
+     *         description="description",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+      *@OA\Parameter(
+     *         name="author_id",
+     *         in="query",
+     *         description="author id",
+     *         required=false,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response="200",
+     *         description="Returns some sample category things",
+     *         @OA\JsonContent()
+     *     ),
+     *     @OA\Response(
+     *         response="400",
+     *         description="Error: Bad request. When required parameters were not supplied.",
+     *     ),
+     * )
+     */
     public function update($id, Request $request)
     {
         try {
@@ -76,6 +224,27 @@ class BooksController extends Controller
         return response()->json($book, 200);
     }
 
+    /**
+     * @OA\DELETE(
+     *     path="/api/v1/books/{id}",
+     *     operationId="/sample/category/things",
+     *     tags={"delete a book "},
+     *security={{"bearerAuth":{}}},
+     *@OA\Parameter(
+     *         name="id",
+     *         in="path",
+     *         description="book id",
+     *         required=true,
+     *         @OA\Schema(type="string")
+     *     ),
+     *     @OA\Response(
+     *         response="204",
+     *         description="Returns some sample category things",
+     *         @OA\JsonContent()
+     *     ),
+     *
+     * )
+     */
     public function delete($id)
     {
         try {
