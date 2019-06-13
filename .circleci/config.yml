@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/php:7.1-node-browsers
         environment:
-          CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
+          # CC_TEST_REPORTER_ID: $CC_TEST_REPORTER_ID
     working_directory: ~/repo
     steps:
       - checkout
