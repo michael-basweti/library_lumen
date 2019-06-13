@@ -48,7 +48,7 @@ class AuthorController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email'=>'requires|email|max:255|unique:authors',
+            'email'=>'required|email|max:255|unique:authors',
             'dob'=>'required'
         ]);
         // $Author = Author::create($request->all());

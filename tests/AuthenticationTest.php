@@ -47,15 +47,86 @@ class AuthenticationTest extends TestCase
             'password' => 'password'
         ];
         $response = $this->post('/api/v1/login', $credentials);
-        $response->assertResponseStatus(400);
+        $response->assertResponseStatus(404);
     }
-    public function testDeleteUserWithoutAuthentication()
+    public function testDeleteUser()
     {
         $user = factory(User::class)->create([
             'password' => app('hash')->make($password = 'i-love-laravel'),
         ]);
         $this->be($user);
         $response = $this->delete("/api/v1/users/{$user->id}");
+        $response->assertResponseStatus(204);
+    }
+
+    public function testDeleteUserWithoutAuthorization()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $response = $this->delete("/api/v1/users/{$user->id}");
+        $response->assertResponseStatus(401);
+    }
+
+    public function testUpdateUser()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $this->be($user);
+        $response = $this->put("/api/v1/users/{$user->id}", ["name" => "Milkovich"]);
+        $newUodatedUser = $this->get("/api/v1/users/{$user->id}");
+        $response->assertResponseStatus(200);
+        $newUodatedUser->seeJson(["name" => "Milkovich"]);
+    }
+    public function testUpdateUserWithoutAuthorization()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $response = $this->put("/api/v1/users/{$user->id}", ["name" => "Milkovich"]);
+        $newUodatedUser = $this->get("/api/v1/users/{$user->id}");
+        $response->assertResponseStatus(401);
+
+    }
+    public function testGetAllUsers()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $user2 = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'me_and_myself'),
+        ]);
+        $this->be($user);
+        $response = $this->get("/api/v1/users");
+        $response->assertResponseStatus(200);
+    }
+    public function testGetAllUsersWithoutAuthorization()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $user2 = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'me_and_myself'),
+        ]);
+        $response = $this->get("/api/v1/users");
+        $response->assertResponseStatus(401);
+    }
+    public function testGetOneUser()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $this->be($user);
+        $response = $this->get("/api/v1/users/{$user->id}");
+        $response->assertResponseStatus(200);
+    }
+    public function testGetOneUserWithoutAuthorization()
+    {
+        $user = factory(User::class)->create([
+            'password' => app('hash')->make($password = 'i-love-laravel'),
+        ]);
+        $response = $this->get("/api/v1/users/{$user->id}");
         $response->assertResponseStatus(401);
     }
 }
