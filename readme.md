@@ -6,7 +6,11 @@
 * This is a simple Api that shows books in a library. It organises the books according to authors, title etc
 ## Getting the swagger Documented Api
 * visit ```https://mysterious-lake-67681.herokuapp.com/api/documentation```
+* The documentation won't load automatically due to a bug in the package I'm using so do as the image below suggests
+![Screenshot 2019-06-13 at 23 58 00](https://user-images.githubusercontent.com/23398223/59487937-c138d580-8e86-11e9-868e-0c03b128db16.jpg)
 
+* On clicking Load Unsafe Scripts to load http over https, the following page will be loaded
+<img width="1432" alt="Screenshot 2019-06-13 at 23 59 04" src="https://user-images.githubusercontent.com/23398223/59488096-402e0e00-8e87-11e9-8242-4deb5579edd0.png">
 ## URLs
 * The following are the urls one may use to interact with the API
 ### USER URLs
