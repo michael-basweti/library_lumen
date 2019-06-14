@@ -75,6 +75,18 @@ Pass id of the user you want to see, dont forget to pass authorization token
 #### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books
 * Get all books
 
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books?sort_desc
+* This will sort the books in a descending order
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books?limit=2&offset=3
+* This will paginates the books into what you want using limit and offset
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books?author=mike
+* This will return all the books written by mike
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/books?search=I have no idea
+* This searches for a book by the title "I have no idea"
+
 ## Author URLs
 * For the all the following URLs, You need to pass the bearer token in the headers
 #### POST::https://mysterious-lake-67681.herokuapp.com/api/v1/authors
@@ -95,6 +107,15 @@ Pass id of the user you want to see, dont forget to pass authorization token
 #### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors{id}
 * Here you just need to pass the id to get a single authors
 
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors{id}/books
+* Return all the books written by an author
+
 #### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors
 * Get all authors
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors?offset=1&limit=2
+* Sets the limit and offset of the authors you want to get
+
+#### GET::https://mysterious-lake-67681.herokuapp.com/api/v1/authors?name=mike
+* Searches for an author by the name Mike
 
