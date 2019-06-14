@@ -11,6 +11,8 @@
 
 * On clicking Load Unsafe Scripts to load http over https, the following page will be loaded
 <img width="1432" alt="Screenshot 2019-06-13 at 23 59 04" src="https://user-images.githubusercontent.com/23398223/59488096-402e0e00-8e87-11e9-8242-4deb5579edd0.png">
+
+
 ## URLs
 * The following are the urls one may use to interact with the API
 ### USER URLs
