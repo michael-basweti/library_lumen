@@ -13,11 +13,14 @@ class Controller extends BaseController
      *   @OA\Contact(
      *     email="michael.basweti@andel.com",
      *     name="Michael Basweti"
-     *   )
+     *   ),
+     * @OA\License(
+ *         name="Apache 2.0",
+ *         url="http://www.apache.org/licenses/LICENSE-2.0.html"
+ *     )
      * )
-     * schemes": "["https"]"
      * @OA\SecurityScheme(
-     * schemes": "["https"]"
+     * type="http",
 *      securityScheme="bearerAuth",
 *      in="header",
 *      name="bearerAuth",
@@ -25,4 +28,5 @@ class Controller extends BaseController
 *      bearerFormat="JWT",
 * ),
      */
+
 }
