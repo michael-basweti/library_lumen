@@ -169,7 +169,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->all());
 
-        return response()->json($User, 200);
+        return response()->json($user, 200);
     }
 
      /**
