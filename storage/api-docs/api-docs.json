@@ -554,21 +554,12 @@
                     }
                 ]
             },
-            "put": {
+            "post": {
                 "tags": [
                     "Register a user"
                 ],
                 "operationId": "/sample/category/things",
                 "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "user id",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
                     {
                         "name": "name",
                         "in": "query",

@@ -56,18 +56,11 @@ class UserController extends Controller
     }
 
         /**
-     * @OA\PUT(
+     * @OA\POST(
      *     path="/api/v1/users",
      *     operationId="/sample/category/things",
      *     tags={"Register a user"},
      *security={{"bearerAuth":{}}},
-     *@OA\Parameter(
-     *         name="id",
-     *         in="path",
-     *         description="user id",
-     *         required=true,
-     *         @OA\Schema(type="string")
-     *     ),
      *     @OA\Parameter(
      *         name="name",
      *         in="query",
